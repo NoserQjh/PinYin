@@ -30,7 +30,7 @@ def train(conf):
                                                                     character_list_path=conf.character_list_path)
 
     # load dataset
-    dataset = load_dataset(path=conf.train_path)
+    dataset = load_dataset(path=conf.dataset_path)
 
     # train
     train_dataset(dataset=dataset, spell2word=spell2word)

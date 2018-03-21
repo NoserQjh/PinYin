@@ -6,7 +6,7 @@ import re
 import state
 
 
-def update_states(last_states, next_character, datanum):
+def update_states(last_states, next_character, datanum, unit_lambda):
     next_states = set()
     for word in next_character.words:
         this_state = state.State(word)
@@ -19,7 +19,8 @@ def update_states(last_states, next_character, datanum):
             last_word = last_state.last_word
 
             self_p = (next_word.appearence + 0.1) / datanum
-            unit_p = float(next_word.ahead.setdefault(last_word.spell, 0)) / float(last_word.appearence + 1) * 1
+            unit_p = float(next_word.ahead.setdefault(last_word.spell, 0)) / float(
+                last_word.appearence + 1) * unit_lambda
             plus_p = math.log(self_p + unit_p)
 
             next_p = last_state.p + plus_p
@@ -31,7 +32,7 @@ def update_states(last_states, next_character, datanum):
     return next_states
 
 
-def transfer(input_path, output_path, spell2character, datanum):
+def transfer(input_path, output_path, spell2character, datanum, unit_lambda):
     print('\nTransfering...')
     with open(unicode(input_path, "utf-8"), 'r') as in_fr:
         with open(unicode(output_path, "utf-8"), 'w ') as out_fr:
@@ -55,7 +56,7 @@ def transfer(input_path, output_path, spell2character, datanum):
                             this_character = spell2character.setdefault(line[i + 1], None)
                             if this_character:
                                 states = update_states(last_states=states, next_character=this_character,
-                                                       datanum=datanum)
+                                                       datanum=datanum, unit_lambda=unit_lambda)
                         states = list(states)
                         states.sort(key=lambda x: x.p, reverse=True)
                         line_result = states[0].sent
