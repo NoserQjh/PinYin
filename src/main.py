@@ -18,5 +18,4 @@ if __name__ == '__main__':
              datanum=conf.data_num)
 
     print('Success!')
-
     # os.system("pause")
