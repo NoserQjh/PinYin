@@ -9,7 +9,7 @@ conf = config.Config()
 
 if __name__ == '__main__':
     # train
-    train(conf=conf)
+    #train(conf=conf)
 
     # load
     words, spell2word, characters, spell2character = load_from_saved(path=conf.save_path)

@@ -9,4 +9,4 @@ class Config(object):
         self.save_path = '../save.txt'
         self.input_path = '../data/input.txt'
         self.output_path = '../data/output.txt'
-        self.data_num = 613483
+        self.data_num = 60512929
