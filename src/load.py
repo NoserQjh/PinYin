@@ -62,7 +62,7 @@ def load_character_list(path, spell2word):
 def load_dataset(path):
     print('\nLoading dataset...')
     files = glob.glob(os.path.join(path, "*"))
-    files = [f for f in files if re.search("11.txt$", os.path.basename(f))]
+    files = [f for f in files if re.search(".txt$", os.path.basename(f))]
     dataset = list()
     start_time = time.time()
     for file in files:
