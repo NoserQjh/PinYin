@@ -8,4 +8,4 @@ There are 4 folders：
 - ./src   :put the python src
 - ./train :put the dataset for train
 
-##You may run the main.py to train and get the output
+# You may run the main.py to train and get the output
