@@ -26,6 +26,19 @@ def load_basements(word_list_path, character_list_path):
     return words, spell2word, characters, spell2character
 
 
+def load_word2character(path):
+    print('\nLoading word2character...')
+    word2character = dict()
+    with open(unicode(path, "utf-8"), 'r') as fr:
+        for line in fr:
+            line = line.decode('GBK')
+            line = line.strip('\n')
+            line = line.split(' ')
+            for i in range(len(line) - 1):
+                word2character[line[i + 1]] = line[0]
+    return word2character
+
+
 def load_word_list(path):
     print('\nLoading word list...')
     words = set()

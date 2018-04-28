@@ -4,8 +4,11 @@
     <file url="file://$PROJECT_DIR$/data/output.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/data/output.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/data/output.txt" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/dataset/spider/1.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/data/output0.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/data/output1.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/dataset/spider/00000.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/lib/一二级汉字表.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/lib/拼音汉字表.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/test/testfile/test.txt" charset="GBK" />
   </component>
 </project>

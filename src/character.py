@@ -3,7 +3,7 @@
 
 
 class Character(object):
-    # 字类
+    # 拼音
     def __init__(self, spell):
         self.spell = spell
         self.words = set()

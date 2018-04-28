@@ -9,5 +9,8 @@ class Config(object):
         self.save_path = '../save.txt'
         self.input_path = '../data/input.txt'
         self.output_path = '../data/output.txt'
+        self.test_path = '../test'
+
+        self.k = 2
         self.data_num = 60512929
-        self.unit_lambda = 3
+        self.unit_lambda = 300

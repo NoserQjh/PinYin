@@ -61,5 +61,29 @@ def transfer(input_path, output_path, spell2character, datanum, unit_lambda):
                         states.sort(key=lambda x: x.p, reverse=True)
                         line_result = states[0].sent
                         print>> out_fr, line_result.encode('GBK')
-                    else:
-                        print('Error! spell = ' + line[0])
+                        # else:
+                        #    print('Error! spell = ' + line[0])
+
+
+def transfer_sent(sent, spell2character, datanum, unit_lambda):
+    line = sent.strip('\n')
+    line = re.split(u'[\s]', line)
+    if len(line) > 0:
+        # create state
+        this_character = spell2character.setdefault(line[0], None)
+        if this_character:
+            states = set()
+            for word in this_character.words:
+                this_state = state.State(word)
+                this_state.p = math.log((word.appearence + 0.1) / datanum * unit_lambda)  #
+                this_state.sent = this_state.sent + word.spell
+                states.add(this_state)
+            for i in range(len(line) - 1):
+                this_character = spell2character.setdefault(line[i + 1], None)
+                if this_character:
+                    states = update_states(last_states=states, next_character=this_character,
+                                           datanum=datanum, unit_lambda=unit_lambda)
+            states = list(states)
+            states.sort(key=lambda x: x.p, reverse=True)
+            for x in states:
+                print(u'p:%4.4f' % x.p + x.sent)
